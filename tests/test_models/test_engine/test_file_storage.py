@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 """
-Unittesting module for BaseModel class
+Unittest module for FileStorage
 """
 import models
-from models.base_model import BaseModel
+from models.engine import file_storage
+from models.engine.file_storage import FileStorage
 import os
 import unittest
 import datetime
 
 
-class Test_Base_Model(unittest.TestCase):
+class Test_File_Storage(unittest.TestCase):
     """
 	Unittesting class
     """
