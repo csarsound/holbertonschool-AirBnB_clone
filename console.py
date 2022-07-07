@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             new_instance = eval(args + "()")
             new_instance.save()
             print(new_instance.id)
-        except:
+        else:
             print("** class doesn't exist **")
 
     def do_show(self, arg):
@@ -96,7 +96,7 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances \
             based or not on the class name
         """
-        
+
         if arg:
             list_args = arg.split()
             if list_args[0] not in HBNBCommand.classes:
@@ -134,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
         objects = storage.all()
         setattr(objects[key], list_args[2], list_args[3])
         storage.save()
-        
+  
     def exect(self, line):
         """Method to run same commands as class.method"""
         # Make a copy of line
@@ -158,8 +158,6 @@ class HBNBCommand(cmd.Cmd):
             cp2[1] = cp2[1].replace('(', ', ')
 
             cp2[1] = cp2[1].replace(')', '')
-
-
             mycmd = cp2[1].split(', ', 1)[0]
             count1, count2 = cp2[1].count('}'), cp2[1].count('{')
             endp_p = len(cp2[1])-1
