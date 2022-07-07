@@ -141,11 +141,6 @@ class TestConsole(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
 
-    def setUpClass(cls):
-            """Set up for every test
-            """
-            FileStorage._FileStorage__file_path = TestConsole.jsfile_test
-
     def test_console_documented(self):
             """Console has some documentation?
             """
