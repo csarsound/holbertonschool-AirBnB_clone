@@ -10,7 +10,7 @@ from models import storage
 
 
 class TestHBNB_prompt(unittest.TestCase):
-    
+
     def testprompt(self):
         self.assertEqual("(hbnb) ", HBNBCommand.prompt)
 
@@ -18,6 +18,7 @@ class TestHBNB_prompt(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
+
 
 class TestConsole(unittest.TestCase):
     """
@@ -140,7 +141,6 @@ class TestConsole(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
 
-    @classmethod
     def setUpClass(cls):
             """Set up for every test
             """
