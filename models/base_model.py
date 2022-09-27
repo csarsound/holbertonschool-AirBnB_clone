@@ -6,6 +6,7 @@ Contains the BaseModel class which will be the
 import uuid
 from datetime import datetime
 import models
+from models.base_model import BaseModel
 
 
 class BaseModel():
@@ -16,6 +17,8 @@ class BaseModel():
         created_at (datetime): the current datetime when instance is created.
         updated_at (datetime): the current datetime when instance is updated.
     """
+    bm = BaseModel()
+    print(type(bm.created_at))
 
     def __init__(self, *args, **kwargs):
         """Initializes the default attributes of the BaseModel object.
@@ -25,6 +28,7 @@ class BaseModel():
         """
         self.id = str(uuid.uuid4())
         self.create_at = self.updated_at = datetime.now()
+        
 
     def __str__(self):
         """overrides the default behaviour of the __str__ method."""
