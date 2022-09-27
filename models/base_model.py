@@ -24,7 +24,8 @@ class BaseModel():
             **kwargs (dict): a dictionary containing wanted attributes.
         """
         self.id = str(uuid.uuid4())
-        self.create_at = self.updated_at = datetime.now()
+        self.updated_at = datetime.now()
+        self.create_at = datetime.now()
 
     def __str__(self):
         """overrides the default behaviour of the __str__ method."""
