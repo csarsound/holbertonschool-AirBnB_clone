@@ -25,7 +25,10 @@ class BaseModel():
         """
         self.id = str(uuid.uuid4())
         self.create_at = self.updated_at = datetime.now()
-
+        if kwargs is not None an kwargs != {}:
+            for k, v in kwargs.items():
+                if k in ["created_at", "updates_at"]:
+                    v = datetime.strptime(v, "%Y-%m-%dT%H:%M:%S.%f")
 
     def __str__(self):
         """overrides the default behaviour of the __str__ method."""
