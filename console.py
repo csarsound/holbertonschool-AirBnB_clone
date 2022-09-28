@@ -4,9 +4,9 @@
 import cmd
 
 
-class AppCommand(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """All the command of the aplication"""
-    prompt = "(ARSUAL)"
+    prompt = "(hbnb)"
 
     def do_quit(self, arg):
         """
@@ -28,4 +28,4 @@ class AppCommand(cmd.Cmd):
 
 
 if __name__=="__main__":
-    AppCommand().cmdloop()
+    HBNBCommand().cmdloop()
