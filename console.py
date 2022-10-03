@@ -7,6 +7,7 @@ import models
 import ast
 
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -22,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
     }
 
     classes = [
-        "BaseModel"
+        "BaseModel", "User"
     ]
 
     def do_quit(self, arg):
