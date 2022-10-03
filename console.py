@@ -19,7 +19,6 @@ class HBNBCommand(cmd.Cmd):
         "missingID": "** instance id missing **",
         "wrongID": "** no instance found **",
         "missingAttr": "** attribute name missing **",
-        "missingValue": "** value missing **"
     }
 
     classes = [
@@ -124,24 +123,21 @@ class HBNBCommand(cmd.Cmd):
                     if len(args) < 3:
                         print(self.errors["missingAttr"])
                     else:
-                        if len(args < 4):
-                            print(self.errors["missingValue"])
-                        else:
-                            obj = models.storage.all()[key]
+                        obj = models.storage.all()[key]
+                        try:
+                            attr_type = type(getattr(obj, args[2]))
+                            args[3] = attr_type(args[3])
+                        except Exception:
                             try:
-                                attr_type = type(getattr(obj, args[2]))
-                                args[3] = attr_type(args[3])
+                                args[3] = int(args[3])
                             except Exception:
                                 try:
-                                    args[3] = int(args[3])
+                                    args[3] = float(args[3])
                                 except Exception:
-                                    try:
-                                        args[3] = float(args[3])
-                                    except Exception:
-                                        pass
+                                    pass
 
-                            setattr(obj, args[2], args[3])
-                            obj.save()
+                        setattr(obj, args[2], args[3])
+                        obj.save()
                 else:
                     print(self.errors["wrongID"])
         else:
