@@ -103,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(self.errors["wrongClass"])
 
-    def do_all(self, arg):
+    def all(self, arg):
         """print all string representation of all instances"""
         args = shlex.split(arg)
         models.storage.reload()
