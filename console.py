@@ -107,10 +107,11 @@ class HBNBCommand(cmd.Cmd):
         """print all string representation of all instances"""
         args = shlex.split(arg)
         models.storage.reload()
+        arch = models.storage.all().values()
         if len(args) < 1:
-            print([value.__str__() for value in models.storage.all().values()])
+            print([v.__str__() for v in arch])
         elif args[0] in self.classes:
-            print([value.__str__() for value in models.storage.all().values()])
+            print([v.__str__() for v in arch if type(v) is eval(args[0])])
         else:
             print(self.errors["wrongClass"])
 
