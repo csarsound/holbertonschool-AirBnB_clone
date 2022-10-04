@@ -14,6 +14,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class HBNBCommand(cmd.Cmd):
     """All the command of the aplication"""
     prompt = "(hbnb)"
